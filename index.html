@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="IPTY Interior and Design plans and furnishes offices, hospitals and clinics, hotels and homes in Nairobi and across Kenya.">
+<title>IPTY Interior and Design | Offices, Hospitals, Hotels &amp; Homes in Kenya</title>
+<style>
+:root{--ink:#22211f;--muted:#66625c;--cream:#f6f3ee;--paper:#fffdf9;--line:#e3ddd3;--accent:#8a6a45;--dark:#1f2a26}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:Arial,Helvetica,sans-serif;font-size:16px;color:var(--ink);background:var(--paper);line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.container{width:min(1120px,92%);margin:auto}
+
+/* header */
+.site{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-weight:800;letter-spacing:.08em;font-size:15px;white-space:nowrap}.logo span{font-weight:400;color:var(--muted)}
+.navlinks{display:flex;gap:24px;font-size:14px;color:#4a4742;align-items:center}
+.navlinks a:hover{color:var(--accent)}
+.navlinks .cta-link{background:var(--dark);color:#fff;padding:9px 18px}.navlinks .cta-link:hover{background:var(--accent);color:#fff}
+.menu{display:none;background:none;border:0;font-size:26px;cursor:pointer;color:var(--ink);padding:6px 10px}
+.mobile-menu{display:none}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border:1px solid var(--ink);font-size:14px;font-weight:700;letter-spacing:.03em;cursor:pointer;font-family:inherit;background:transparent;color:var(--ink);transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:var(--ink);color:#fff}
+.btn.primary{background:var(--dark);color:#fff;border-color:var(--dark)}.btn.primary:hover{background:var(--accent);border-color:var(--accent)}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+
+/* slider (shared) */
+.slider{position:relative;overflow:hidden;background:#e4e0d8}
+.slider .slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease}
+.slider .slide.on{opacity:1}
+.slider .slide img{transition:transform 5s ease}
+.slider .slide.on img{transform:scale(1.04)}
+.dots{position:absolute;left:18px;bottom:16px;display:flex;gap:8px;z-index:3}
+.dot{width:9px;height:9px;border-radius:50%;border:0;background:rgba(255,255,255,.55);cursor:pointer;padding:0}
+.dot.on{background:#fff}
+.tag{position:absolute;right:0;bottom:0;z-index:3;background:var(--paper);padding:8px 16px;font-size:14px;font-weight:700}
+
+/* hero */
+.hero{padding:56px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:500}
+h1{font-size:clamp(40px,5.6vw,68px);line-height:1.02;letter-spacing:-.03em}
+.hero p{max-width:520px;color:var(--muted);font-size:18px;margin:22px 0 30px}
+.hero .slider{height:500px}
+
+/* sector quick links */
+.quick{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:8px 0 80px}
+.quick a{padding:20px 14px;text-align:center;font-family:Georgia,serif;font-size:22px;transition:background .2s}
+.quick a+a{border-left:1px solid var(--line)}
+.quick a:hover{background:var(--cream);color:var(--accent)}
+
+/* sections */
+.section{padding:0 0 90px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:34px}
+h2{font-size:clamp(32px,4.8vw,52px);line-height:1.05}
+.head p{max-width:420px;color:var(--muted)}
+
+/* sector cards */
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.project{background:var(--cream)}
+.project .slider{height:340px}
+.project:nth-child(2) .slider,.project:nth-child(3) .slider{height:420px}
+.project-copy{padding:22px 24px 26px}
+.project-copy h3{font-size:30px;line-height:1.1}
+.project-copy p{color:var(--muted);margin:8px 0 14px}
+.link{font-weight:700;font-size:15px;border-bottom:2px solid var(--accent);padding-bottom:2px}
+.link:hover{color:var(--accent)}
+
+/* about + services */
+.about{background:var(--cream);padding:76px 0;margin-bottom:90px}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
+.about h2{max-width:440px}
+.about-copy{color:#55514b;font-size:17px;max-width:600px}.about-copy p+p{margin-top:16px}
+.services{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:56px}
+.service{padding:24px 18px 8px 0;border-right:1px solid var(--line)}
+.service:not(:first-child){padding-left:18px}.service:last-child{border-right:0}
+.service h3{font-size:22px;margin-bottom:6px}.service p{font-size:15px;color:var(--muted)}
+
+/* process */
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.step{border-top:2px solid var(--ink);padding-top:16px}
+.step b{font-family:Georgia,serif;font-size:34px;font-weight:500;color:var(--accent);line-height:1}
+.step h3{font-size:24px;margin:8px 0 6px}.step p{font-size:15px;color:var(--muted)}
+
+/* location */
+.location{background:#eeeae3;padding:30px 0;margin-bottom:90px}
+.location-inner{display:flex;justify-content:space-between;align-items:center;gap:30px}
+.location h3{font-size:30px}.location p{color:var(--muted);margin-top:4px}
+
+/* contact */
+.contact{background:var(--dark);color:#fff;padding:80px 0;margin-bottom:0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.contact h2{margin-bottom:16px}
+.contact-info>p{color:#cfd3cf;max-width:440px;margin-bottom:26px}
+.row{display:flex;gap:14px;align-items:center;margin:14px 0}
+.row i{font-style:normal;width:36px;height:36px;border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;font-size:14px;flex:none}
+.row a{border-bottom:1px solid rgba(255,255,255,.4)}
+form{background:var(--paper);color:var(--ink);padding:30px;display:grid;gap:16px}
+label{font-size:15px;font-weight:700;display:grid;gap:6px}
+select,textarea{font:inherit;font-weight:400;padding:12px 14px;border:1px solid #cfc8bc;background:#fff;color:var(--ink);width:100%;border-radius:0}
+textarea{min-height:110px;resize:vertical}
+form .btn{justify-self:start}
+.note{font-size:14px;color:var(--muted)}
+
+footer{background:var(--dark);color:#aeb4b0;border-top:1px solid rgba(255,255,255,.12);padding:22px 0;font-size:14px}
+footer .container{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+.wa{position:fixed;right:22px;bottom:22px;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;z-index:25;box-shadow:0 7px 25px rgba(0,0,0,.22);transition:transform .2s}
+.wa:hover{transform:translateY(-3px)}.wa svg{width:28px;height:28px;fill:#fff}
+
+@media(max-width:900px){
+.navlinks{display:none}.menu{display:block}
+.nav{height:64px}
+.mobile-menu{position:fixed;top:64px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);z-index:29;display:block;transform:translateY(-120%);visibility:hidden;transition:transform .3s ease,visibility .3s;padding:6px 4%;box-shadow:0 12px 30px rgba(0,0,0,.08)}
+.mobile-menu.open{transform:none;visibility:visible}
+.mobile-menu a{display:block;padding:15px 0;border-bottom:1px solid var(--line);font-size:16px}.mobile-menu a:last-child{border-bottom:0}
+.hero{padding:34px 0 28px}.hero-grid{grid-template-columns:1fr;gap:28px}.hero .slider{height:340px}
+.hero p{font-size:17px}
+.quick{grid-template-columns:1fr 1fr;margin-bottom:60px}.quick a{font-size:20px}
+.quick a:nth-child(3){border-left:0}.quick a:nth-child(n+3){border-top:1px solid var(--line)}
+.section{padding-bottom:64px}.head{display:block}.head p{margin-top:12px}
+.projects{grid-template-columns:1fr;gap:18px}
+.project .slider,.project:nth-child(n) .slider{height:300px}
+.about{padding:56px 0;margin-bottom:64px}.about-grid{grid-template-columns:1fr;gap:26px}
+.services{grid-template-columns:1fr 1fr;margin-top:40px}.service:nth-child(2){border-right:0}.service:nth-child(3){padding-left:0}
+.service{border-bottom:1px solid var(--line);padding-bottom:18px}
+.process{grid-template-columns:1fr 1fr}
+.location{margin-bottom:64px}.location-inner{display:block}.location .btn{margin-top:18px}
+.contact{padding:60px 0}.contact-grid{grid-template-columns:1fr;gap:34px}
+}
+@media(max-width:520px){
+.services,.process{grid-template-columns:1fr}
+.service,.service:not(:first-child){padding-left:0;border-right:0}
+.wa{right:16px;bottom:16px;width:52px;height:52px}
+.btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){.slider .slide img{transition:none!important;transform:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="site"><div class="container">
+<nav class="nav">
+<a class="logo" href="#home">IPTY <span>INTERIOR &amp; DESIGN</span></a>
+<div class="navlinks"><a href="#offices">Offices</a><a href="#hospitals">Hospitals</a><a href="#hotels">Hotels</a><a href="#homes">Homes</a><a href="#services">Services</a><a class="cta-link" href="#contact">Get in touch</a></div>
+<button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+</nav>
+</div></header>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="#offices">Offices</a><a href="#hospitals">Hospitals &amp; clinics</a><a href="#hotels">Hotels</a><a href="#homes">Homes</a><a href="#services">Services</a><a href="#contact">Get in touch</a>
+</div>
+
+<main id="home">
+<section class="container hero">
+<div class="hero-grid">
+<div>
+<h1>Interiors for places people work, heal, stay and live.</h1>
+<p>IPTY Interior and Design plans, furnishes and finishes offices, hospitals, hotels and homes across Nairobi and Kenya.</p>
+<div class="buttons"><a class="btn primary" href="#contact">Start your project</a><a class="btn" href="#offices">See the spaces</a></div>
+</div>
+<div class="slider" data-ids="1497366216548-37526070297c,1519494026892-80bbd2d6fd0d,1566073771259-6a8506099945,1600607687939-ce8a6c25118c" data-alt="Modern office|Hospital interior|Hotel resort|Modern home living room" data-tags="Offices|Hospitals &amp; clinics|Hotels|Homes" data-w="1200"></div>
+</div>
+</section>
+
+<section class="container quick" aria-label="Spaces we design"><a href="#offices">Offices</a><a href="#hospitals">Hospitals &amp; clinics</a><a href="#hotels">Hotels</a><a href="#homes">Homes</a></section>
+
+<section class="container section" id="work">
+<div class="head"><h2>Spaces we design</h2><p>Four kinds of space, one careful approach: design around the people who use it.</p></div>
+<div class="projects">
+
+<article class="project" id="offices">
+<div class="slider" data-ids="1497366216548-37526070297c,1497366811353-6870744d04b2,1524758631624-e2822e304c36" data-alt="Bright open-plan office|Office desks and workstations|Meeting room"></div>
+<div class="project-copy"><h3>Offices</h3><p>Workplaces that support focus, teamwork and your brand, from a single floor to a full headquarters. Layouts, reception, meeting rooms, desks, storage and lighting.</p><a class="link" href="#contact" data-sector="Office">Plan an office</a></div>
+</article>
+
+<article class="project" id="hospitals">
+<div class="slider" data-ids="1519494026892-80bbd2d6fd0d,1586773860418-d37222d8fce3,1538108149393-fbbd81895907" data-alt="Bright hospital corridor|Hospital interior|Clinic hallway"></div>
+<div class="project-copy"><h3>Hospitals &amp; clinics</h3><p>Calm, clean and easy-to-navigate spaces for patients and staff. Waiting areas, wards, consultation rooms, with hygienic and durable finishes.</p><a class="link" href="#contact" data-sector="Hospital or clinic">Plan a healthcare space</a></div>
+</article>
+
+<article class="project" id="hotels">
+<div class="slider" data-ids="1566073771259-6a8506099945,1551882547-ff40c63fe5fa,1582719478250-c89cae4dc85b" data-alt="Hotel resort pool|Hotel bedroom|Hotel suite"></div>
+<div class="project-copy"><h3>Hotels &amp; hospitality</h3><p>Welcoming lobbies, restaurants, rooms and suites, with commercial-grade furniture and fabrics made for daily use.</p><a class="link" href="#contact" data-sector="Hotel or hospitality">Plan a hotel project</a></div>
+</article>
+
+<article class="project" id="homes">
+<div class="slider" data-ids="1600607687939-ce8a6c25118c,1600607687920-4e2a09cf159d,1600210492486-724fe5c67fb0,1616486338812-3dadae4b4ace" data-alt="Bright living room|Contemporary living room|Elegant interior|Modern dining interior"></div>
+<div class="project-copy"><h3>Homes</h3><p>Comfortable, personal homes, from one room to a complete house or apartment. Design, furniture, colour and styling chosen with you.</p><a class="link" href="#contact" data-sector="Home">Plan a home</a></div>
+</article>
+
+</div>
+</section>
+
+<section class="about" id="about"><div class="container about-grid">
+<h2>Good design should look beautiful and work beautifully.</h2>
+<div class="about-copy"><p>An office should help people focus. A hospital should feel calm and clear. A hotel should welcome guests from the first step inside. A home should be comfortable. Each space has a job, and we design it to do that job well.</p><p>From concept and space planning to furniture, finishes and styling, we create interiors that are elegant, practical and built to last.</p>
+<div class="services" id="services">
+<div class="service"><h3>Interior design</h3><p>Concepts, layouts and a complete design direction.</p></div>
+<div class="service"><h3>Space planning</h3><p>Better flow and use of every floor, ward and room.</p></div>
+<div class="service"><h3>Furniture &amp; styling</h3><p>Furniture, colour, lighting and décor chosen to last.</p></div>
+<div class="service"><h3>Consultation</h3><p>Practical advice for your project.</p></div>
+</div></div>
+</div></section>
+
+<section class="container section">
+<div class="head"><h2>How a project works</h2><p>A simple path from first chat to finished space, so you always know what happens next.</p></div>
+<div class="process">
+<div class="step"><b>1</b><h3>Consult</h3><p>We learn about the space, the people who use it and your budget.</p></div>
+<div class="step"><b>2</b><h3>Concept</h3><p>We prepare a clear visual direction and layout.</p></div>
+<div class="step"><b>3</b><h3>Design</h3><p>Materials, colours, furniture and details come together.</p></div>
+<div class="step"><b>4</b><h3>Deliver</h3><p>We finish the details for a polished, ready-to-use space.</p></div>
+</div>
+</section>
+
+<section class="location"><div class="container location-inner">
+<div><h3>Nairobi, Kenya</h3><p>Serving clients in Nairobi and across Kenya.</p></div>
+<a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Nairobi%2C%20Kenya" target="_blank" rel="noopener">View on Google Maps</a>
+</div></section>
+
+<section class="contact" id="contact"><div class="container contact-grid">
+<div class="contact-info">
+<h2>Let’s design your space.</h2>
+<p>Tell us about your office, hospital, hotel or home and what you would like to achieve. We reply on WhatsApp.</p>
+<div class="row"><i>💬</i><a href="https://wa.me/254799003781?text=Hello!%20I%20found%20you%20on%20your%20website%20and%20I'm%20interested%20in%20your%20interior%20design%20services.%20Are%20you%20available%20for%20a%20quick%20consultation%3F" target="_blank" rel="noopener">WhatsApp +254 7990 03781</a></div>
+<div class="row"><i>☎</i><a href="tel:+25499003781">Call +254 7990 03781</a></div>
+<div class="row"><i>⌖</i><span>Nairobi, Kenya</span></div>
+</div>
+<form id="f">
+<label>Type of space
+<select id="type"><option>Office</option><option>Hospital or clinic</option><option>Hotel or hospitality</option><option>Home</option><option>Something else</option></select></label>
+<label>Tell us about your project
+<textarea id="msg" placeholder="Location, size of space, what you need and when"></textarea></label>
+<button class="btn primary" type="submit">Send on WhatsApp</button>
+<span class="note">This opens WhatsApp with your message ready to send.</span>
+</form>
+</div></section>
+<!-- Social links: add real Instagram, Facebook, TikTok and Pinterest profile links to the footer when available. -->
+</main>
+
+<footer><div class="container"><div>© 2026 IPTY Interior and Design. All rights reserved.</div><div>Offices, hospitals, hotels and homes in Nairobi, Kenya</div></div></footer>
+
+<a class="wa" href="https://wa.me/254799003781" target="_blank" rel="noopener" aria-label="Chat with IPTY on WhatsApp" title="Chat on WhatsApp">
+<svg viewBox="0 0 32 32"><path d="M16 3a13 13 0 0 0-11.2 19.7L3 29l6.5-1.7A13 13 0 1 0 16 3zm0 23.5c-2 0-3.9-.6-5.5-1.7l-.4-.3-3.8 1 1-3.7-.3-.4A10.5 10.5 0 1 1 16 26.5zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.6-.8-2.7-1.4-3.8-3.2-.3-.5.3-.5.9-1.8.1-.2.1-.4 0-.6-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.3c.2.2 2.4 3.7 5.8 5.1 2.1.9 2.9 1 3.9.9.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.3.2-1.5-.1-.2-.3-.3-.6-.5z"/></svg>
+</a>
+
+<script>
+/* Slideshows: built from the photo ids in data-ids */
+document.querySelectorAll('.slider').forEach(function(box,k){
+  var ids=box.dataset.ids.split(','),alts=(box.dataset.alt||'').split('|'),tags=box.dataset.tags?box.dataset.tags.split('|'):null;
+  var w=box.dataset.w||'1100',slides=[],dots=document.createElement('div'),tag=null,cur=0,timer;
+  dots.className='dots';
+  if(tags){tag=document.createElement('div');tag.className='tag';box.appendChild(tag)}
+  ids.forEach(function(id,i){
+    var s=document.createElement('div'),im=new Image(),d=document.createElement('button');
+    s.className='slide';im.alt=alts[i]||'';im.decoding='async';
+    if(!(k===0&&i===0))im.loading='lazy';
+    im.src='https://images.unsplash.com/photo-'+id+'?auto=format&fit=crop&w='+w+'&q=78';
+    s.appendChild(im);box.appendChild(s);
+    d.className='dot';d.setAttribute('aria-label','Show image '+(i+1));d.onclick=function(){show(slides.indexOf(s));restart()};
+    dots.appendChild(d);
+    s._d=d;s._t=tags?tags[i]:'';
+    im.onerror=function(){ /* drop broken photos */
+      var j=slides.indexOf(s);if(j<0)return;
+      slides.splice(j,1);s.remove();d.remove();
+      if(cur>=slides.length)cur=0;
+      if(slides[cur])show(cur);
+    };
+    slides.push(s);
+  });
+  box.appendChild(dots);
+  function show(i){
+    if(i<0||!slides[i])return;
+    slides.forEach(function(s){s.classList.remove('on');s._d.classList.remove('on')});
+    cur=i;slides[i].classList.add('on');slides[i]._d.classList.add('on');
+    if(tag)tag.textContent=slides[i]._t;
+  }
+  function restart(){clearInterval(timer);if(slides.length>1)timer=setInterval(function(){show((cur+1)%slides.length)},4000)}
+  show(0);
+  setTimeout(restart,k*600);
+});
+
+/* Mobile menu */
+var menuBtn=document.getElementById('menuBtn'),mm=document.getElementById('mobileMenu');
+function setMenu(o){mm.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);menuBtn.textContent=o?'×':'☰'}
+menuBtn.addEventListener('click',function(){setMenu(!mm.classList.contains('open'))});
+mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+
+/* Sector links preselect the contact form */
+document.querySelectorAll('[data-sector]').forEach(function(a){
+  a.addEventListener('click',function(){document.getElementById('type').value=a.dataset.sector});
+});
+
+/* WhatsApp enquiry */
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  var t=document.getElementById('type').value,m=document.getElementById('msg').value.trim();
+  var text='Hello IPTY, I would like to discuss a project. Space type: '+t+'.'+(m?' '+m:'');
+  window.open('https://wa.me/254799003781?text='+encodeURIComponent(text),'_blank','noopener');
+});
+</script>
+</body>
+</html>
