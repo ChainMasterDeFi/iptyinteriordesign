@@ -35,6 +35,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .slider{position:relative;overflow:hidden;background:#e4e0d8}
 .slider .slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease}
 .slider .slide.on{opacity:1}
+.slider .slide video{display:block;width:100%;height:100%;object-fit:cover}
 .slider .slide img{transition:transform 5s ease}
 .slider .slide.on img{transform:scale(1.04)}
 .dots{position:absolute;left:18px;bottom:16px;display:flex;gap:8px;z-index:3}
@@ -166,7 +167,7 @@ footer .container{display:flex;justify-content:space-between;gap:14px;flex-wrap:
 <p>IPTY Interior and Design plans, furnishes and finishes offices, hospitals, hotels and homes across Nairobi and Kenya.</p>
 <div class="buttons"><a class="btn primary" href="#contact">Start your project</a><a class="btn" href="#offices">See the spaces</a></div>
 </div>
-<div class="slider" data-ids="1497366216548-37526070297c,1519494026892-80bbd2d6fd0d,1566073771259-6a8506099945,1600607687939-ce8a6c25118c" data-alt="Modern office|Hospital interior|Hotel resort|Modern home living room" data-tags="Offices|Hospitals &amp; clinics|Hotels|Homes" data-w="1200"></div>
+<div class="slider" data-ids="1497366216548-37526070297c,1519494026892-80bbd2d6fd0d,images/image 4.jpeg,images/image 7.jpeg" data-alt="Modern office|Hospital interior|Hotel twin bedroom|Elegant home living room" data-tags="Offices|Hospitals &amp; clinics|Hotels|Homes" data-w="1200"></div>
 </div>
 </section>
 
@@ -176,25 +177,26 @@ footer .container{display:flex;justify-content:space-between;gap:14px;flex-wrap:
 <div class="head"><h2>Spaces we design</h2><p>Four kinds of space, one careful approach: design around the people who use it.</p></div>
 <div class="projects">
 
-<article class="project" id="offices">
-<div class="slider" data-ids="1497366216548-37526070297c,1497366811353-6870744d04b2,1524758631624-e2822e304c36" data-alt="Bright open-plan office|Office desks and workstations|Meeting room"></div>
-<div class="project-copy"><h3>Offices</h3><p>Workplaces that support focus, teamwork and your brand, from a single floor to a full headquarters. Layouts, reception, meeting rooms, desks, storage and lighting.</p><a class="link" href="#contact" data-sector="Office">Plan an office</a></div>
-</article>
-
-<article class="project" id="hospitals">
-<div class="slider" data-ids="1519494026892-80bbd2d6fd0d,1586773860418-d37222d8fce3,1538108149393-fbbd81895907" data-alt="Bright hospital corridor|Hospital interior|Clinic hallway"></div>
-<div class="project-copy"><h3>Hospitals &amp; clinics</h3><p>Calm, clean and easy-to-navigate spaces for patients and staff. Waiting areas, wards, consultation rooms, with hygienic and durable finishes.</p><a class="link" href="#contact" data-sector="Hospital or clinic">Plan a healthcare space</a></div>
-</article>
-
 <article class="project" id="hotels">
-<div class="slider" data-ids="1566073771259-6a8506099945,1551882547-ff40c63fe5fa,1582719478250-c89cae4dc85b" data-alt="Hotel resort pool|Hotel bedroom|Hotel suite"></div>
+<div class="slider" data-ids="images/image 4.jpeg,images/image 5.jpeg,images/image 12.jpeg,videos/video 2.mp4" data-alt="Hotel twin bedroom|Hotel restaurant and cafe interior|Hotel interior"></div>
 <div class="project-copy"><h3>Hotels &amp; hospitality</h3><p>Welcoming lobbies, restaurants, rooms and suites, with commercial-grade furniture and fabrics made for daily use.</p><a class="link" href="#contact" data-sector="Hotel or hospitality">Plan a hotel project</a></div>
 </article>
 
 <article class="project" id="homes">
-<div class="slider" data-ids="1600607687939-ce8a6c25118c,1600607687920-4e2a09cf159d,1600210492486-724fe5c67fb0,1616486338812-3dadae4b4ace" data-alt="Bright living room|Contemporary living room|Elegant interior|Modern dining interior"></div>
+<div class="slider" data-ids="images/image 3.jpeg,images/image 2.jpeg,images/image 9.jpeg,images/image 8.jpeg,images/image 1.jpeg,images/image 6.jpeg,images/image 7.jpeg" data-alt="Living room with chandelier|Dining room with panelled walls|Living room styling detail|Timber sideboard with textured art|Console table with framed prints|Dining table with panelled wall|Cream lounge with marble coffee table"></div>
 <div class="project-copy"><h3>Homes</h3><p>Comfortable, personal homes, from one room to a complete house or apartment. Design, furniture, colour and styling chosen with you.</p><a class="link" href="#contact" data-sector="Home">Plan a home</a></div>
 </article>
+
+<article class="project" id="offices">
+<div class="slider" data-ids="images/image 10.jpeg,1497366811353-6870744d04b2,1524758631624-e2822e304c36" data-alt="Bright open-plan office|Office desks and workstations|Meeting room"></div>
+<div class="project-copy"><h3>Offices</h3><p>Workplaces that support focus, teamwork and your brand, from a single floor to a full headquarters. Layouts, reception, meeting rooms, desks, storage and lighting.</p><a class="link" href="#contact" data-sector="Office">Plan an office</a></div>
+</article>
+
+<article class="project" id="hospitals">
+<div class="slider" data-ids="images/image 10.jpeg,images/image 11.jpeg,videos/video 1.mp4" data-alt="Bright hospital corridor|Hospital interior|Hospital video"></div>
+<div class="project-copy"><h3>Hospitals &amp; clinics</h3><p>Calm, clean and easy-to-navigate spaces for patients and staff. Waiting areas, wards, consultation rooms, with hygienic and durable finishes.</p><a class="link" href="#contact" data-sector="Hospital or clinic">Plan a healthcare space</a></div>
+</article>
+
 
 </div>
 </section>
@@ -252,22 +254,30 @@ footer .container{display:flex;justify-content:space-between;gap:14px;flex-wrap:
 </a>
 
 <script>
-/* Slideshows: built from the photo ids in data-ids */
+/* Slideshows: photos and videos, built from data-ids (Unsplash ids, image paths or .mp4/.webm paths) */
 document.querySelectorAll('.slider').forEach(function(box,k){
   var ids=box.dataset.ids.split(','),alts=(box.dataset.alt||'').split('|'),tags=box.dataset.tags?box.dataset.tags.split('|'):null;
   var w=box.dataset.w||'1100',slides=[],dots=document.createElement('div'),tag=null,cur=0,timer;
   dots.className='dots';
   if(tags){tag=document.createElement('div');tag.className='tag';box.appendChild(tag)}
   ids.forEach(function(id,i){
-    var s=document.createElement('div'),im=new Image(),d=document.createElement('button');
-    s.className='slide';im.alt=alts[i]||'';im.decoding='async';
-    if(!(k===0&&i===0))im.loading='lazy';
-    im.src='https://images.unsplash.com/photo-'+id+'?auto=format&fit=crop&w='+w+'&q=78';
-    s.appendChild(im);box.appendChild(s);
-    d.className='dot';d.setAttribute('aria-label','Show image '+(i+1));d.onclick=function(){show(slides.indexOf(s));restart()};
+    id=id.trim();
+    var s=document.createElement('div'),d=document.createElement('button'),isVid=/\.(mp4|webm|mov)$/i.test(id),m;
+    s.className='slide';
+    if(isVid){
+      m=document.createElement('video');
+      m.muted=true;m.playsInline=true;m.preload='metadata';m.setAttribute('aria-label',alts[i]||'');
+      m.src=id;s._v=m;
+    }else{
+      m=new Image();m.alt=alts[i]||'';m.decoding='async';
+      if(!(k===0&&i===0))m.loading='lazy';
+      m.src=id.indexOf('.')>-1?id:'https://images.unsplash.com/photo-'+id+'?auto=format&fit=crop&w='+w+'&q=78';
+    }
+    s.appendChild(m);box.appendChild(s);
+    d.className='dot';d.setAttribute('aria-label','Show item '+(i+1));d.onclick=function(){show(slides.indexOf(s))};
     dots.appendChild(d);
     s._d=d;s._t=tags?tags[i]:'';
-    im.onerror=function(){ /* drop broken photos */
+    m.onerror=function(){ /* drop broken photos or videos */
       var j=slides.indexOf(s);if(j<0)return;
       slides.splice(j,1);s.remove();d.remove();
       if(cur>=slides.length)cur=0;
@@ -276,15 +286,25 @@ document.querySelectorAll('.slider').forEach(function(box,k){
     slides.push(s);
   });
   box.appendChild(dots);
+  function next(){show((cur+1)%slides.length)}
+  function schedule(){
+    clearTimeout(timer);
+    var s=slides[cur];if(!s||slides.length<2)return;
+    if(s._v){ /* videos play to the end, then move on (30s safety limit) */
+      s._v.onended=next;timer=setTimeout(next,30000);
+    }else timer=setTimeout(next,4000);
+  }
   function show(i){
     if(i<0||!slides[i])return;
-    slides.forEach(function(s){s.classList.remove('on');s._d.classList.remove('on')});
+    slides.forEach(function(x){x.classList.remove('on');x._d.classList.remove('on');if(x._v)x._v.pause()});
     cur=i;slides[i].classList.add('on');slides[i]._d.classList.add('on');
     if(tag)tag.textContent=slides[i]._t;
+    if(slides[i]._v){slides[i]._v.currentTime=0;var p=slides[i]._v.play();if(p&&p.catch)p.catch(function(){})}
+    if(started)schedule();
   }
-  function restart(){clearInterval(timer);if(slides.length>1)timer=setInterval(function(){show((cur+1)%slides.length)},4000)}
+  var started=false;
   show(0);
-  setTimeout(restart,k*600);
+  setTimeout(function(){started=true;schedule()},k*600);
 });
 
 /* Mobile menu */
